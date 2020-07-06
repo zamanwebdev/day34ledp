@@ -29,6 +29,19 @@
             }
 
         }
+        function editUser($id){
+//		    echo $id;
+            $link = mysqli_connect('localhost','root','','zamanwebdev');
+            $sql = "SELECT * FROM user_info WHERE id= '$id'";
+            if ($result = mysqli_query($link,$sql)){
+//                echo "<pre>";
+//                print_r($result);
+                return $result;
+
+            }else{
+                die(mysqli_error($link));
+            }
+        }
 	}
 	
 ?>

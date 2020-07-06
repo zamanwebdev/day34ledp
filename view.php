@@ -37,7 +37,7 @@
 			<td><?php echo $info['phone']; ?></td>
 			<td><?php echo $info['address']; ?></td>
             <td>
-                <a href="edit.php">Edit</a> ||
+                <a href="edit.php?id=<?php echo $info['id'];?>">Edit</a> ||
                 <a href="">Delete</a>
             </td>
 		</tr>

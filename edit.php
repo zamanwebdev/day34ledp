@@ -1,4 +1,8 @@
 <?php
+    require_once "class/user.php";
+    $user = new User;
+    $result = $user->editUser($_GET['id']);
+    $info = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,23 +18,25 @@
             <table>
                 <tr>
                     <td>Name</td>
-                    <td><input type="text" name="name"></td>
+                    <td><input type="text" name="name" value="<?php echo $info['name'];?>" required></td>
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td><input type="email" name="email"></td>
+                    <td><input type="email" name="email" value="<?php echo $info['email'];?>" required></td>
                 </tr>
                 <tr>
                     <td>Phone</td>
-                    <td><input type="text" name="phone"></td>
+                    <td><input type="text" name="phone" value="<?php echo $info['phone'];?>" required></td>
                 </tr>
                 <tr>
                     <td>Address</td>
-                    <td><textarea name="address" cols="30" rows="10"></textarea></td>
+                    <td><textarea name="address" cols="30" rows="10">
+                            <?php echo $info['address'];?>
+                        </textarea></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" name="btn"></td>
+                    <td><input type="submit" name="btn" value="Update"></td>
                 </tr>
             </table>
         </form>
