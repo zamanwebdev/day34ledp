@@ -23,6 +23,7 @@
 			<td>Email</td>
 			<td>Phone</td>
 			<td>Address</td>
+			<td>Action</td>
 		</tr>
         <?php
         $i = 1;
@@ -35,6 +36,10 @@
 			<td><?php echo $info['email']; ?></td>
 			<td><?php echo $info['phone']; ?></td>
 			<td><?php echo $info['address']; ?></td>
+            <td>
+                <a href="edit.php">Edit</a> ||
+                <a href="">Delete</a>
+            </td>
 		</tr>
         <?php }?>
 	</table>
