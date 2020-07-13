@@ -2,6 +2,9 @@
     require_once('class/user.php');
     $user = new User;
     $result = $user->selectUsers();
+    if (isset($_GET['delete'])) {
+    	$user->deleteUser($_GET['id']);
+    }
 
 //    echo "<pre>";
 //    print_r($info);
@@ -38,7 +41,7 @@
 			<td><?php echo $info['address']; ?></td>
             <td>
                 <a href="edit.php?id=<?php echo $info['id'];?>">Edit</a> ||
-                <a href="">Delete</a>
+                <a href="?delete&id=<?php echo $info['id'];?>" onclick="return confirm('Are you sure to delete?')" >Delete</a>
             </td>
 		</tr>
         <?php }?>

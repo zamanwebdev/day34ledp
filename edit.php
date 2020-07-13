@@ -3,6 +3,9 @@
     $user = new User;
     $result = $user->editUser($_GET['id']);
     $info = mysqli_fetch_assoc($result);
+    if (isset($_POST['btn'])) {
+        $user->updaeUser($_GET['id']);
+    }
 ?>
 <!DOCTYPE html>
 <html>

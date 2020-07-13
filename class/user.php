@@ -42,6 +42,27 @@
                 die(mysqli_error($link));
             }
         }
+        function updaeUser($id){
+        	$link = mysqli_connect('localhost','root','','zamanwebdev');
+        	$sql = "UPDATE user_info SET name = '$_POST[name]', email = '$_POST[email]', phone = '$_POST[phone]', address = '$_POST[address]' WHERE id = '$id'";
+        	if (mysqli_query($link,$sql)) {
+        		header('location: view.php');
+        	}else{
+        		die(mysqli_error($link));
+        	}	
+        }
+        function deleteUser($id){
+	       	$link = mysqli_connect('localhost','root','','zamanwebdev');
+	       	$sql = "DELETE FROM user_info WHERE id = '$id'";
+	       	if (mysqli_query($link,$sql)) {
+        		header('location: view.php');
+        	}else{
+        		die(mysqli_error($link));
+        	}	
+
+        }
+
+        
 	}
 	
 ?>
